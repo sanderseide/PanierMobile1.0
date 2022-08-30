@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.paniermobil.R;
 import com.example.paniermobil.fragments.HomeFragment;
@@ -28,6 +29,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView badgeCounter;
+    int pendingNotifications = 3;
+    MenuItem menuItem;
     Fragment homeFragment;
     ProgressBar progressBar;
     private AppBarConfiguration mAppBarConfiguration;
@@ -61,8 +65,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
+
+        menuItem = menu.findItem(R.id.cart);
+
+
+        if (pendingNotifications == 0){
+            menuItem.setActionView(null);
+
+        }else{
+            menuItem.setActionView(R.layout.notification_badge);
+            View view = menuItem.getActionView();
+            badgeCounter = view.findViewById(R.id.badge_counter);
+            badgeCounter.setText(String.valueOf(pendingNotifications));
+        }
         return true;
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -75,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (id == R.id.about){
             startActivity(new Intent(MainActivity.this, about_us.class));
+        }
+        else if (id == R.id.cart){
+            startActivity(new Intent(MainActivity.this, CartActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

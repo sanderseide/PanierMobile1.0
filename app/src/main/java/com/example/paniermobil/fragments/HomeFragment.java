@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,13 +25,16 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.paniermobil.Models.CategoryModel;
+import com.example.paniermobil.Models.FirrstItem;
 import com.example.paniermobil.Models.NewProductsModel;
 import com.example.paniermobil.Models.PopularProductModel;
 import com.example.paniermobil.R;
 import com.example.paniermobil.activities.ShowAllActivity;
 import com.example.paniermobil.adapters.CategoryAdapter;
+import com.example.paniermobil.adapters.FirstAdapter;
 import com.example.paniermobil.adapters.NewProductsAdapter;
 import com.example.paniermobil.adapters.PopularProductAdapter;
+import com.example.paniermobil.adapters.SecondAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -43,7 +47,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView catRecyclerview,newProductRecyclerview,popularRecyclerview;
+    RecyclerView catRecyclerview,newProductRecyclerview,popularRecyclerview,firstReclerView,secondRecyclerView;
 
     TextView catShowALl,popularShowAll,newProductShowAll;
 
@@ -52,6 +56,13 @@ public class HomeFragment extends Fragment {
     //Category recyclerView
     CategoryAdapter categoryAdapter;
     List<CategoryModel> categoryModelList;
+
+    //First recyclerview
+    FirstAdapter firstAdapter;
+    List<FirrstItem> firrstItemList;
+
+    SecondAdapter secondAdapter;
+    List<FirrstItem> seconItemList;
 
     //New product Recyclerview
     NewProductsAdapter newProductsAdapter;
@@ -70,6 +81,12 @@ public class HomeFragment extends Fragment {
 
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -81,9 +98,12 @@ public class HomeFragment extends Fragment {
         catRecyclerview = root.findViewById(R.id.rec_category);
         newProductRecyclerview = root.findViewById(R.id.new_product_rec);
         popularRecyclerview = root.findViewById(R.id.popular_rec);
-
+        firstReclerView = root.findViewById(R.id.first);
+        secondRecyclerView = root.findViewById(R.id.second);
         popularShowAll = root.findViewById(R.id.popular_see_all);
         newProductShowAll = root.findViewById(R.id.newProducts_see_all);
+
+        //Card for Firs View
 
 
         popularShowAll.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +182,54 @@ public class HomeFragment extends Fragment {
                                 NewProductsModel newProductsModel = document.toObject(NewProductsModel.class);
                                 newProductsModelList.add(newProductsModel);
                                 newProductsAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        //Firs products
+        firstReclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
+        firrstItemList = new ArrayList<>();
+        firstAdapter = new FirstAdapter(getContext(),firrstItemList);
+        firstReclerView.setAdapter(firstAdapter);
+
+        db.collection("NewProducts")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                FirrstItem firrstItem = document.toObject(FirrstItem.class);
+                                firrstItemList.add(firrstItem);
+                                firstAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        //Second products
+        secondRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
+        seconItemList = new ArrayList<>();
+        secondAdapter = new SecondAdapter(getContext(),seconItemList);
+        secondRecyclerView.setAdapter(secondAdapter);
+
+        db.collection("AllProducts")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                FirrstItem secondtItem = document.toObject(FirrstItem.class);
+                                seconItemList.add(secondtItem);
+                                secondAdapter.notifyDataSetChanged();
                             }
                         } else {
                             Toast.makeText(getActivity(), ""+task.getException(), Toast.LENGTH_SHORT).show();

@@ -15,7 +15,7 @@
         android:gravity="center"
         android:layout_margin="20dp"
         android:textColor="@color/purple_500"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/member_tag"/>
@@ -52,11 +52,11 @@
         android:layout_height="150dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toTopOf="@id/sander_tag"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/claudio_image"
         app:layout_constraintTop_toBottomOf="@id/member_tag"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sander_tag"
-        app:srcCompat="@drawable/claudio" />
+        app:srcCompat="@drawable/capture" />
 
     <TextView
         android:id="@+id/claudio_tag"
@@ -65,10 +65,10 @@
         app:layout_constraintTop_toBottomOf="@+id/claudio_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/sander_tag"
-
+        android:layout_marginRight="60dp"
         android:text="Claudio Terogene"
         android:textColor="@color/purple_500"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         />
 
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="Sander Seide"
         android:textColor="@color/purple_500"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/claudio_tag"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@id/claudio_tag"
         android:gravity="center"
         android:textColor="@color/purple_500"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toStartOf="@id/sander_Description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@id/claudio_tag"
         android:gravity="center"
         android:textColor="@color/purple_500"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/claudio_Description"
         app:layout_constraintBottom_toBottomOf="parent"/>

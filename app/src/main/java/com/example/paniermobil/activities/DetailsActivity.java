@@ -55,7 +55,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        toolbar = findViewById(R.id.detailed_toolbar);
+        //toolbar = findViewById(R.id.detailed_toolbar);
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firestore = FirebaseFirestore.getInstance();

@@ -55,4 +55,10 @@ dependencies {
 
     //payment
     implementation 'com.razorpay:checkout:1.6.19'
+
+    //notification badge
+
+
+    //EvenBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }

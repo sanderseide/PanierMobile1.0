@@ -13,7 +13,6 @@
        android:orderInCategory="100"
        android:title="My products"
        app:showAsAction="never" />
-
    <item
        android:id="@+id/profile"
        android:orderInCategory="100"

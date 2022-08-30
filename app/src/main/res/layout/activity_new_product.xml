@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:padding="10sp"
-        android:text="Add a new product"
+        android:text="@string/add_a_new_product"
         android:textColor="#4CAF50"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -33,6 +33,8 @@
 
 
         />
+
+
 
     <EditText
         android:id="@+id/et_product_price"
