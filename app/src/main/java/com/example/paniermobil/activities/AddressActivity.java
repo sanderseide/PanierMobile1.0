@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +38,9 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
     FirebaseAuth auth;
     Button paymentBtn;
     String mAddress = "";
+    Button monCash_Btn;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,7 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
 
         recyclerView = findViewById(R.id.address_recycler);
         paymentBtn = findViewById(R.id.payment_btn);
+        monCash_Btn = findViewById(R.id.monCash_image_btn);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -69,6 +73,15 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
                         addressAdapter.notifyDataSetChanged();
                     }
                 }
+            }
+        });
+
+        monCash_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MonCash_Payment_Activity.class);
+                intent.putExtra("url", "https://claudio-terogene.netlify.app/");
+                startActivity(intent);
             }
         });
 

@@ -55,7 +55,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        //toolbar = findViewById(R.id.detailed_toolbar);
+        toolbar = findViewById(R.id.detailed_toolbar);
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firestore = FirebaseFirestore.getInstance();
@@ -122,18 +122,18 @@ public class DetailsActivity extends AppCompatActivity {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(DetailsActivity.this, AddressActivity.class);
+                Intent intent = new Intent(DetailsActivity.this, AddressActivity.class);
 
-               if (newProductsModel != null){
-                   intent.putExtra("item", newProductsModel);
-               }
-               if (popularProductModel != null){
-                   intent.putExtra("item",popularProductModel);
-               }
-               if (showAllModel != null){
-                   intent.putExtra("item",showAllModel);
-               }
-               startActivity(intent);
+                if (newProductsModel != null){
+                    intent.putExtra("item", newProductsModel);
+                }
+                if (popularProductModel != null){
+                    intent.putExtra("item",popularProductModel);
+                }
+                if (showAllModel != null){
+                    intent.putExtra("item",showAllModel);
+                }
+                startActivity(intent);
 
             }
         });

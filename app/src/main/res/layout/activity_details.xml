@@ -18,13 +18,13 @@
         android:src="@mipmap/icon"
         android:scaleType="centerCrop"/>
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/detailed_toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detailed_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
@@ -134,12 +134,11 @@
 
                 <ImageView
 
-                    android:id="@+id/remove_item"
+                    android:layout_marginRight="8dp"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginRight="8dp"
-                    android:foreground="@drawable/color_minus_push_button_green_gui_colour_24843"
-                     />
+                    android:src="@drawable/plus"
+                    android:id="@+id/remove_item"/>
 
                 <TextView
                     android:id="@+id/quantity"
