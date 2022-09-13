@@ -1,17 +1,4 @@
 # Mobile Charts
-
-
-## Description
-
-In the sample application you can:
-* Add new products
-* Add to your charts and buy using MonCash
-* Sell your product and get paid by the Panier Mobile Team
-* Leave a message for us, and rating
-
-## License for Mobile Charts
-
-# Mobile Charts
 Mobile charts is an app for buying and selling products. We are focused on almost all types of products.
 
 ### User Stories
@@ -19,9 +6,10 @@ Mobile charts is an app for buying and selling products. We are focused on almos
 
 
 - [x] Add new products.
-- [x] Add to your charts and buy using MonCash.
-- [] Sell your product and get paid by the Panier Mobile Team
-- [] Leave a message for us, and rating
+- [ ] Add to your charts and buy using MonCash.
+- [ ] Sell your product and get paid by the Panier Mobile Team
+- [ ] Leave a message for us, and rating
+- [ ] Pay using international Payment options
 
 ### App Walkthough GIF
 
