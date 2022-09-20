@@ -36,7 +36,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView rating, name, description, price, quantity;
     Button addToCart, buyNow;
     ImageView addItems, removeItems;
-    Button monCash_Btn;
+
     Toolbar toolbar;
     int totalQuantity = 1;
     int totalPrice = 0;
@@ -81,8 +81,6 @@ public class DetailsActivity extends AppCompatActivity {
         quantity = findViewById(R.id.quantity);
         addToCart = findViewById(R.id.add_to_cart);
         buyNow = findViewById(R.id.buy_now);
-        //monCash_Btn = findViewById(R.id.monCash_image_btn);
-        monCash_Btn = findViewById(R.id.monCash_image_btn);
         addItems = findViewById(R.id.add_item);
         removeItems = findViewById(R.id.remove_item);
 
@@ -146,15 +144,6 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addtoCart();
-            }
-        });
-        //Moncash Button click to WebView page
-        monCash_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DetailsActivity.this, MonCash_Payment_Activity.class);
-                intent.putExtra("url", "https://claudio-terogene.netlify.app/");
-                startActivity(intent);
             }
         });
 

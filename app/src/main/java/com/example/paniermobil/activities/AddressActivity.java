@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.paniermobil.Models.AddressModel;
 import com.example.paniermobil.Models.MyCartModel;
@@ -38,7 +39,7 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
     FirebaseAuth auth;
     Button paymentBtn;
     String mAddress = "";
-    Button monCash_Btn;
+    ImageView monCash_Btn;
 
     @SuppressLint("WrongViewCast")
     @Override
