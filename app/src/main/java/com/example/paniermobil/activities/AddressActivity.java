@@ -79,7 +79,7 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
         monCash_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MonCash_Payment_Activity.class);
+                Intent intent = new Intent(AddressActivity.this, MonCash_Payment_Activity.class);
                 intent.putExtra("url", "https://claudio-terogene.netlify.app/");
                 startActivity(intent);
             }
