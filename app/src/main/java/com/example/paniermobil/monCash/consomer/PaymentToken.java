@@ -1,6 +1,7 @@
-package com.example.paniermobil.monCash;
+package com.example.paniermobil.monCash.consomer;
 
-public class paymentToken {
+public class PaymentToken {
+
     private String token;
     private String created;
     private String expired;
