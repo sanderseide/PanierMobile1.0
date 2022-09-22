@@ -1,24 +1,25 @@
-package com.example.paniermobil.monCash;
+package com.example.paniermobil.monCash.credential;
 
-
+import com.example.paniermobil.monCash.exception.MonCashRestException;
+import com.example.paniermobil.monCash.http.Constants;
+import com.example.paniermobil.monCash.http.HttpConnection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
-
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OAuthTokenCredential {
+
     private String clientID;
 
     private String clientSecret;
@@ -40,7 +41,7 @@ public class OAuthTokenCredential {
     public boolean hasCredentials() {
         return (this.clientID != null) && (this.clientSecret != null);
     }
-/*
+
     private synchronized Oauth generateAccessToken() throws MonCashRestException {
 
         HttpEntity entity;
@@ -90,6 +91,6 @@ public class OAuthTokenCredential {
         Oauth oauth = this.generateAccessToken();
         return oauth.getToken_type()+" "+oauth.getAccess_token();
     }
-    */
+
 
 }
