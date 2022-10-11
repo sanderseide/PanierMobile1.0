@@ -1,6 +1,6 @@
 package com.example.paniermobil.monCash;
 
-public class credential {
+public class credentialApiId {
     // Kod sa  yo se varyab ki kenbe idantite pesonel mwen avek idantite sekrè mwen.
     // Mwen pran idantite sa yo sou sit test Moncash la ki se: https://sandbox.moncashbutton.digicelgroup.com/
     public static String CLIENT_ID = "3d787042019209cbe90d21ee1b5a928f";

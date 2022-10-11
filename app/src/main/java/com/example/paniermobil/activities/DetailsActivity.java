@@ -3,6 +3,7 @@ package com.example.paniermobil.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -50,6 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
     private FirebaseFirestore firestore ;
     private Object drawableImage;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +81,6 @@ public class DetailsActivity extends AppCompatActivity {
         quantity = findViewById(R.id.quantity);
         addToCart = findViewById(R.id.add_to_cart);
         buyNow = findViewById(R.id.buy_now);
-
         addItems = findViewById(R.id.add_item);
         removeItems = findViewById(R.id.remove_item);
 
@@ -122,18 +123,18 @@ public class DetailsActivity extends AppCompatActivity {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(DetailsActivity.this, AddressActivity.class);
+                Intent intent = new Intent(DetailsActivity.this, AddressActivity.class);
 
-               if (newProductsModel != null){
-                   intent.putExtra("item", newProductsModel);
-               }
-               if (popularProductModel != null){
-                   intent.putExtra("item",popularProductModel);
-               }
-               if (showAllModel != null){
-                   intent.putExtra("item",showAllModel);
-               }
-               startActivity(intent);
+                if (newProductsModel != null){
+                    intent.putExtra("item", newProductsModel);
+                }
+                if (popularProductModel != null){
+                    intent.putExtra("item",popularProductModel);
+                }
+                if (showAllModel != null){
+                    intent.putExtra("item",showAllModel);
+                }
+                startActivity(intent);
 
             }
         });
